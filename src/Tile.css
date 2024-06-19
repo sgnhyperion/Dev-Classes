@@ -1,0 +1,19 @@
+.tile{
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.image-right{
+    flex-direction: row-reverse;
+}
+
+.red{
+    background-color: red;
+}
+.board{
+    width: 50vw;
+}
+
+.img-parent{
+    width: 50vw;
+}

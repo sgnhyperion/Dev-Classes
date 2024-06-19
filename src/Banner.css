@@ -1,0 +1,12 @@
+.banner {
+    position: relative;
+    width: 100vw;
+    /* height: 80%; */
+    /* max-width: 800px; Adjust as needed */
+    /* margin: auto; */
+}
+
+.banner img {
+    width: 100%;
+    /* display: block; */
+}
