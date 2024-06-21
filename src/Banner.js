@@ -11,7 +11,7 @@ const banners = [
 function Banner(){
     return(
         <div className="banner">
-            <Carousel autoplay autoplayInterval={1000} 
+            <Carousel autoplay autoplayInterval={100} 
                 wrapAround >
         {
             banners.map((bannerSrc,index)=>{

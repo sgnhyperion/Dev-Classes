@@ -1,4 +1,4 @@
-import AddtoCart from './AddtoCart';
+import AddToCart from './AddToCart';
 import './ProductCard.css';
 import { useRef , useState} from 'react';
 import Effect from './Effects/Effect';
@@ -45,6 +45,7 @@ function ProductCard({title,price}){
             <p ref={oRef} id='text'>Text here : {inputV} </p>
             {/* <AddtoCart /> */}
             <Effect />
+            <AddToCart />{/*product={product}  */}
             </div>
     );
 }

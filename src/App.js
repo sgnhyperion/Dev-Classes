@@ -8,14 +8,49 @@ import Tile from './Tile';
 import { Carousel } from 'nuka-carousel';
 import Banner from './Banner';
 import ProgressBar from './ProgressBar';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import AboutPage from './Pages/AboutPage';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './Pages/AboutPage';
+import CartContext from './Context/CartContext';
+
 
 function App() {
   // console.log(a,b)
   const[percentage,setPercentage] = useState(0);
+
+  let [cart, UpdateCart] = useState({});
+
+  function increamentQuantity({product}){
+    const newCart = {...cart};   // Spread operator => Copying the cart object
+    
+      if(newCart[product.id]){
+        newCart[product.id] = newCart[product.id].quantity + 1;
+      } else{
+        newCart[product.id] = {
+          // id: product.id,
+          // name: product.name,
+          // price: product.price,
+          ...product,
+          quantity:0
+        }
+      }
+
+      UpdateCart(newCart);
+  }
+
+  function decreamentQuantity({product}){
+      const newCart = {...cart};   // Spread operator => Copying the cart object
+      if(newCart[product.id]){
+        newCart[product.id].quantity -= 1;
+      }
+      if(newCart[product.id].quantity <= 0){
+        delete newCart[product.id];
+      }
+
+      UpdateCart(newCart);
+
+  }
 
   useEffect(()=>{
     // function increasePercent(percentage){
@@ -39,7 +74,8 @@ function App() {
     return ()=>{clearInterval(Interval)};
   });
   return (
-    <div className="App">
+    <CartContext.Provider value={{cart, increamentQuantity, decreamentQuantity}}>
+      <div className="App">
       {/* <p>{a},{b}</p> */} 
        <Navbar />
       <Typewriter text={[
@@ -77,6 +113,7 @@ function App() {
       </Routes>
     </Router> */}
     </div> 
+    </CartContext.Provider>
   );
 }
 
