@@ -13,6 +13,7 @@ import AboutPage from './Pages/AboutPage';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './Pages/AboutPage';
 import CartContext from './Context/CartContext';
+import Cart from './Cart/Cart';
 
 
 function App() {
@@ -105,6 +106,7 @@ function App() {
       <ProgressBar percentage={percentage}/>
       <br></br>
       <Products />
+      <Cart />
    
     {/* <Router>
       <Routes>

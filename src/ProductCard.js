@@ -2,10 +2,11 @@ import AddToCart from './AddToCart';
 import './ProductCard.css';
 import { useRef , useState} from 'react';
 import Effect from './Effects/Effect';
+import ReduxAddToCart from './ReduxAddToCart/ReduxAddToCart';
 // import AddtoCart from './AddtoCart';
 // import {useRef} from 'react';
 
-function ProductCard({title,price}){
+function ProductCard({product}){
     // console.log({price});\
     let pRef = useRef(0);
     let iRef = useRef(0);
@@ -38,14 +39,15 @@ function ProductCard({title,price}){
     return(
         // <div>{props.num}</div>
         <div className="ProductCard"><br></br>
-            <p onClick={printPrice}>{title}</p>  
-            <p ref={pRef}>{price} </p>
+            <p onClick={printPrice}>{product.title}</p>  
+            <p ref={pRef}>{product.price.value} </p>
             <img src="https://cdn.iconscout.com/icon/free/png-512/free-react-1-282599.png?f=webp&w=256" alt="logo" />
+            {/* <input type="text" onChange={displayOutput} ref={iRef} value={inputV} /> */}
             <div><input type='text' onChange={displayOutput} ref={iRef} placeholder={inputV}></input></div>
             <p ref={oRef} id='text'>Text here : {inputV} </p>
-            {/* <AddtoCart /> */}
             <Effect />
-            <AddToCart />{/*product={product}  */}
+            {/* <AddToCart /> */}
+            <ReduxAddToCart product={product} />
             </div>
     );
 }
