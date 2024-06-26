@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
+import {addToCart, removeFromCart} from '../Store.js';
+import { add } from "lodash";
 // import Cart from "../Cart/Cart";
 function ReduxAddToCart({product}) {
     console.log("add to cart", product.id);
@@ -7,11 +9,11 @@ function ReduxAddToCart({product}) {
     let dispatch = useDispatch();
     function increase() {
         //dispatch({type: , payload: })
-        dispatch({ type: "ADD_TO_CART", payload: product });
+        dispatch(addToCart(product));
     }
     function decrease() {
      //dispatch({type: , payload: })
-     dispatch({ type: "REMOVE_FROM_CART", payload: product });
+     dispatch(removeFromCart(product));
     }
 
     let quantity = useSelector((state) => {
