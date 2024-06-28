@@ -7,7 +7,6 @@ export function addToCart(product) {
     type: "ADD_TO_CART",
     payload: product,
   };
-
 }
 
 export function removeFromCart(product) {
@@ -15,7 +14,6 @@ export function removeFromCart(product) {
     type: "REMOVE_FROM_CART",
     payload: product,
   };
-
 }
 
 function cartReducer(state = { items: {} }, action) {
@@ -71,6 +69,5 @@ function cartReducer(state = { items: {} }, action) {
   }
 }
 
-const store = createStore(cartReducer);
 
-export default store;
+export default cartReducer

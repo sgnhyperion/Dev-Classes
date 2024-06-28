@@ -1,9 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import React from "react";
-import {addToCart, removeFromCart} from '../stores/Cart.js';
-import { add } from "lodash";
-// import Cart from "../Cart/Cart";
-function ReduxAddToCart({product}) {
+import { addToCart, removeFromCart } from "../stores/Cart";
+function ReduxAddToCart({ product }) {
     console.log("add to cart", product.id);
     // useSelector
     let dispatch = useDispatch();
@@ -32,7 +29,6 @@ function ReduxAddToCart({product}) {
                 <button onClick={decrease}>-</button>
                 <span>{quantity}</span>
                 <button onClick={increase}>+</button>
-                {/* <Cart product = {product}/> */}
             </div>
         )
     }

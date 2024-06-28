@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 // import { loadCategories } from "../../stores/Categories";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loadCategories } from "../stores/Categories";
 
 // function Category() {
-    
+
 //     const [categories, setCategory] = useState([]);
 
 //     useEffect(()=>{
@@ -29,31 +29,30 @@ import { loadCategories } from "../stores/Categories";
 
 // export default Category;
 
-
 function Categories() {
+  const categories = useSelector((state) => {
+    return state.categories.categories;
+  });
+  const dispatch = useDispatch();
 
-    const [categories, setCategories] = useState([]);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(loadCategories());
-        // fetch("https://run.mocky.io/v3/dc25e1aa-3ae4-4c41-8626-b2529c231bcd").then(
-        //     (res) => {
-        //         return res.json();
-        //     }
-        // ).then((res) => {
-        //     // console.log(res);
-        //     setCategories(res);
-        // })
-    },[])
-    return (
-        <div>
-            {categories.map((item)=> {
-                return(
-                <div key={item.id}>{item.name}</div>)
-            })}
-        </div>
-    )
+  useEffect(() => {
+    dispatch(loadCategories());
+    // fetch("https://run.mocky.io/v3/dc25e1aa-3ae4-4c41-8626-b2529c231bcd").then(
+    //     (res) => {
+    //         return res.json();
+    //     }
+    // ).then((res) => {
+    //     // console.log(res);
+    //     setCategories(res);
+    // })
+  }, []);
+  return (
+    <div>
+      {categories.map((item) => {
+        return <div key={item.id}>{item.name}</div>;
+      })}
+    </div>
+  );
 }
 
 export default Categories;

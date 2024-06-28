@@ -7,7 +7,7 @@
 //     // })
 
 //     const cart = useSelector((state) => {
-//         return state.items;
+//         return state.cart.items;
 //     });
 //     return (
 //         <div>
